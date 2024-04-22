@@ -1,5 +1,19 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* o border box nao permite que os outros valores (width, padding, etc) se somem e aumentem o tamanho
+  da caixa! */
+}
+
+body,
+input,
+button,
+select,
+textarea {
   font-family: "Poppins", sans-serif;
+}
+body {
   background-color: #e5e5e5;
 }
 
@@ -30,6 +44,7 @@ header h1 {
   font-size: 36px;
   line-height: 42px;
   color: white;
+  margin-bottom: 24px;
 }
 
 header p {
@@ -50,6 +65,11 @@ form {
 fieldset {
   border: none;
 }
+.fieldset-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 fieldset legend {
   font-family: "Archivo", sans-serif;
   font-weight: 600;
@@ -61,4 +81,46 @@ fieldset legend {
   border-bottom: 1px solid #e6e6f0;
   /* qdo tem borda, o ideal é colocar um padding(preenchimento) */
   padding-bottom: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.input-wrapper label {
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #4e4958;
+  margin-bottom: 8px;
+}
+.input-wrapper label span {
+  margin-left: 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #a9a7af;
+}
+.input-wrapper label span:hover {
+  color: #6c6a71;
+  /* mudou-se a cor aqui para dar mais contraste qdo passasse o mouse por cima.
+  questao de acessibilidade! */
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  background-color: #fafafc;
+
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+
+  height: 56px;
+  padding: 0 24px;
+
+  font-size: 16px;
+  line-height: 26px;
+  color: #6c6a71;
+}
+.input-wrapper textarea {
+  padding: 0;
+  height: 168px;
 }
