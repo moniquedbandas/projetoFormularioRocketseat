@@ -60,6 +60,10 @@ form {
   border-radius: 8px;
 
   padding: 64px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 fieldset {
@@ -138,3 +142,13 @@ fieldset legend {
 
 /* caniuse.com é um site que posso pesquisar se a propriedade que quero usar sao 
 suportadas no navegador. */
+
+.col-3 {
+  display: flex;
+  gap: 20px;
+}
+
+/* No primeiro nivel de div, faz *isso* no numero do filho em parenteses!*/
+.col-3 > div:nth-child(1) {
+  width: 100%;
+}
