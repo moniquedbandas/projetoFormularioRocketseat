@@ -8,7 +8,6 @@
 
 body,
 input,
-button,
 select,
 textarea {
   font-family: "Poppins", sans-serif;
@@ -57,7 +56,7 @@ form {
   background-color: #fcfcfc;
   min-height: 300px;
   margin-top: 38px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
 
   padding: 64px;
 
@@ -91,7 +90,8 @@ fieldset legend {
   display: flex;
   flex-direction: column;
 }
-.input-wrapper label {
+.input-wrapper label,
+.checkbox-wrapper label {
   font-size: 14px;
   line-height: 24px;
 
@@ -151,4 +151,72 @@ suportadas no navegador. */
 /* No primeiro nivel de div, faz *isso* no numero do filho em parenteses!*/
 .col-3 > div:nth-child(1) {
   width: 100%;
+}
+.checkbox-wrapper {
+  position: relative;
+}
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+.checkbox-wrapper input {
+  position: absolute;
+  /* é absoluto em relaçao ao checkbox-wrapper relative */
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* deixamos a opacidade no zero para ficar invisivel para nós, mas visivel
+  para a acessibilidade! */
+}
+.checkbox-wrapper label::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+}
+.checkbox-wrapper input:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00016 16.1698L4.83016 11.9998L3.41016 13.4098L9.00016 18.9998L21.0002 6.99984L19.5902 5.58984L9.00016 16.1698Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+}
+
+.checkbox-wrapper input:focus + label::before {
+  outline: 2px solid black;
+}
+
+footer {
+  background-color: #f0f0f4;
+  height: 136px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px 64px;
+  margin-bottom: 100px;
+
+  border-top: 1px solid #d6d6d6;
+  border-radius: 0 0 8px 8px;
+}
+
+footer .button {
+  height: 56px;
+  background-color: #04d361;
+  border-radius: 8px;
+  border: 0;
+  font-family: "Archivo";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+
+  color: #ffffff;
+}
+
+footer .button:hover {
+  background-color: #08a04c;
+}
+
+input:invalid {
+  border: 1px solid red;
 }
